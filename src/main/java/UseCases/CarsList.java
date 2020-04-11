@@ -24,6 +24,7 @@ import java.util.List;
 import java.util.Map;
 
 @Model
+@RequestScoped
 public class CarsList{
 
     @Inject

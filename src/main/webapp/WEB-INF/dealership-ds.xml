@@ -1,7 +1,7 @@
 <datasources>
-    <datasource jndi-name="DealershipDataSource2" pool-name="DealershipDataSource2">
+    <datasource jndi-name="DealershipDataSource3" pool-name="DealershipDataSource3">
         <driver>h2</driver>
-        <connection-url>jdbc:h2:~/h2database/DealershipDataBase2;AUTO_SERVER=TRUE</connection-url>
+        <connection-url>jdbc:h2:~/h2database/DealershipDataBase3;AUTO_SERVER=TRUE</connection-url>
         <security>
             <user-name>admin</user-name>
             <password>admin</password>

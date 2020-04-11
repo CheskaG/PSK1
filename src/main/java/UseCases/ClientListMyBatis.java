@@ -27,6 +27,7 @@ import java.util.List;
 import java.util.Map;
 
 @Model
+@RequestScoped
 public class ClientListMyBatis{
 
     @Inject
@@ -37,11 +38,11 @@ public class ClientListMyBatis{
 
     @Getter
     @Setter
-    private mybatis.model.CarClient carClient = new mybatis.model.CarClient();
+    private mybatis.model.CarClient carClient = new mybatis.model.CarClient();;
 
     @Getter
     @Setter
-    private Car car = new Car();
+    private Car car= new Car();
 
     @Inject
     private CarDAO carDAO;
@@ -57,11 +58,11 @@ public class ClientListMyBatis{
 
 
     @Getter @Setter
-    private Client clientToCreate = new Client();
+    private mybatis.model.Client clientToCreate = new mybatis.model.Client();
 
 
     @Getter @Setter
-    private mybatis.model.Client client;
+    private mybatis.model.Client client = new mybatis.model.Client();
 
 
 
@@ -88,7 +89,7 @@ public class ClientListMyBatis{
 
     @Transactional
     public String createClient() {
-        clientDao.persist(clientToCreate);
+        clientMapper.insert(clientToCreate);
 
         return "Clients?faces-redirect=true&carId=" + this.car.getId();
     }
@@ -96,11 +97,21 @@ public class ClientListMyBatis{
     @Transactional
     public String addClient() {
 
+        Map<String, String> requestParameters =
+                FacesContext.getCurrentInstance().getExternalContext().getRequestParameterMap();
+        Integer clientId = Integer.parseInt(requestParameters.get("clientId"));
+
         carClient.setCarsId(this.car.getId());
-        carClient.setClientsId(this.client.getId());
+        carClient.setClientsId(clientId);
         carClientMapper.insert(carClient);
         return "Clients?faces-redirect=true&carId=" + this.car.getId();
     }
 
 
+    @Override
+    public String toString() {
+        return "ClientListMyBatis{" +
+                "client=" + client.getId() +" "+client.getName() +
+                '}';
+    }
 }

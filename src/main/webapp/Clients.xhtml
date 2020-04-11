@@ -34,20 +34,20 @@
             </p>
         </h:form>
 
-    <h2>Past Clients add:</h2>
+    <h2>All Created Clients:</h2>
 
     <h:form>
-        <h:selectOneMenu value="#{clientListMyBatis.client}" converter="omnifaces.SelectItemsConverter">
-            <f:selectItem itemLabel="Choose client" noSelectionOption="true"/>
-            <f:selectItems value="#{clientListMyBatis.allClients}" var="client" itemLabel="#{client.surname}" itemValue="#{client}"/>
-        </h:selectOneMenu>
-        <p>
-            <h:commandButton value="Add" action="#{clientListMyBatis.addClient}">
-                <f:param name="carId" value="#{clientListMyBatis.car.id}" />
-            </h:commandButton>
-
-        </p>
+        <ol>
+            <ui:repeat value="#{clientListMyBatis.allClients}" var="client1">
+                <li>#{client1.surname}</li>
+               <h:commandButton value="Add" action="#{clientListMyBatis.addClient}">
+                      <f:param name="carId" value="#{clientListMyBatis.car.id}" />
+                <f:param name="clientId" value="#{client1.id}" />
+               </h:commandButton>
+            </ui:repeat>
+        </ol>
     </h:form>
+    <h2>Past clients:</h2>
     <ol>
         <ui:repeat value="#{clientListMyBatis.selectedClients}" var="client">
             <li>#{client.surname}</li>

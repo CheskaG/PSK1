@@ -4,9 +4,9 @@
     <!-- see http://tomee.apache.org/datasource-config.html -->
 
     <!-- H2 Database -->
-    <Resource id="DealershipDataSource2" type="DataSource">
+    <Resource id="DealershipDataSource3" type="DataSource">
         JdbcDriver = org.h2.Driver
-        JdbcUrl = jdbc:h2:~/h2database/DealershipDataBase2;AUTO_SERVER=TRUE;
+        JdbcUrl = jdbc:h2:~/h2database/DealershipDataBase3;AUTO_SERVER=TRUE;
         UserName = admin
         Password = admin
         InitialSize = 1

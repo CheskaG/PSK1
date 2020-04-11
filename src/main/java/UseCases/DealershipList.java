@@ -15,6 +15,7 @@ import java.io.Serializable;
 import java.util.List;
 
 @Model
+@RequestScoped
 public class DealershipList {
 
     @Inject
