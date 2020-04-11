@@ -1,0 +1,26 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE configuration
+        PUBLIC "-//mybatis.org//DTD Config 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-config.dtd">
+<configuration>
+    <typeAliases>
+        <typeAlias type="mybatis.model.Dealership" alias="Dealership"/>
+        <typeAlias type="mybatis.model.Car" alias="Car"/>
+        <typeAlias type="mybatis.model.CarClient" alias="CarClient"/>
+        <typeAlias type="mybatis.model.Client" alias="Client"/>
+    </typeAliases>
+    <environments default="development">
+        <environment id="development">
+            <transactionManager type="MANAGED"/>
+            <dataSource type="JNDI">
+                <property name="data_source" value="DealershipDataSource2"/>
+            </dataSource>
+        </environment>
+    </environments>
+    <mappers>
+        <mapper resource="mybatis.xml/DealershipMapper.xml"/>
+        <mapper resource="mybatis.xml/CarMapper.xml"/>
+        <mapper resource="mybatis.xml/CarClientMapper.xml"/>
+        <mapper resource="mybatis.xml/ClientMapper.xml"/>
+    </mappers>
+</configuration>

@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:h="http://java.sun.com/jsf/html"
+      xmlns:ui="http://xmlns.jcp.org/jsf/facelets"
+      xmlns:f="http://java.sun.com/jsf/core"
+>
+<h:body>
+    <h1>#{clientListMyBatis.car.model} Past Users(Clients)</h1>
+    <h2>Add client:</h2>
+        <h:form>
+            <table>
+                <tr>
+                    <td>Name:</td>
+                    <td>
+                        <h:inputText id="name" value="#{clientListMyBatis.clientToCreate.name}"
+                                     required="true"/>
+                    </td>
+                </tr>
+                <tr>
+                    <td>Surname:</td>
+                    <td>
+                        <h:inputText id="surname" value="#{clientListMyBatis.clientToCreate.surname}"
+                                     required="true"/>
+
+                    </td>
+                </tr>
+            </table>
+            <p>
+                <h:commandButton value="Add" action="#{clientListMyBatis.createClient}">
+                <f:param name="carId" value="#{clientListMyBatis.car.id}" />
+                </h:commandButton>
+
+            </p>
+        </h:form>
+
+    <h2>Past Clients add:</h2>
+
+    <h:form>
+        <h:selectOneMenu value="#{clientListMyBatis.client}" converter="omnifaces.SelectItemsConverter">
+            <f:selectItem itemLabel="Choose client" noSelectionOption="true"/>
+            <f:selectItems value="#{clientListMyBatis.allClients}" var="client" itemLabel="#{client.surname}" itemValue="#{client}"/>
+        </h:selectOneMenu>
+        <p>
+            <h:commandButton value="Add" action="#{clientListMyBatis.addClient}">
+                <f:param name="carId" value="#{clientListMyBatis.car.id}" />
+            </h:commandButton>
+
+        </p>
+    </h:form>
+    <ol>
+        <ui:repeat value="#{clientListMyBatis.selectedClients}" var="client">
+            <li>#{client.surname}</li>
+        </ui:repeat>
+    </ol>
+</h:body>
+</html>

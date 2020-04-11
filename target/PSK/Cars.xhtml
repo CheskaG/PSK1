@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:h="http://java.sun.com/jsf/html"
+      xmlns:f="http://java.sun.com/jsf/core"
+>
+<h:body>
+    <h1>#{carsList.dealership.name}</h1>
+    <h4>Add new car:</h4>
+    <h:form>
+        <table>
+            <tr>
+                <td>Manufacturer:</td>
+                <td>
+                    <h:inputText id="manufacturer" value="#{carsList.car.manufacturer}"
+                                 required="true"/>
+                </td>
+            </tr>
+            <tr>
+                <td>Model:</td>
+                <td>
+                    <h:inputText id="model" value="#{carsList.car.model}"
+                                 required="true"/>
+                </td>
+            </tr>
+        </table>
+        <p>
+            <h:commandButton value="Add" action="#{carsList.createCar}">
+                <f:param name="dealershipId" value="#{carsList.dealership.id}" />
+            </h:commandButton>
+        </p>
+    </h:form>
+    <h2>Car list:</h2>
+    <h:dataTable value="#{carsList.carList}" var="car">
+        <h:column>
+            <f:facet name="header"><b>Manufacturer</b></f:facet>
+            #{car.manufacturer}
+        </h:column>
+        <h:column>
+            <f:facet name="header"><b>Model</b></f:facet>
+             <h:link value="#{car.model}" outcome="Clients?carId=#{car.id}"/>
+
+        </h:column>
+    </h:dataTable>
+</h:body>
+</html>
