@@ -4,9 +4,9 @@
         "http://mybatis.org/dtd/mybatis-generator-config_1_0.dtd">
 
 <generatorConfiguration>
-    <context id="DealershipDataBase3" targetRuntime="MyBatis3Simple">
+    <context id="DealershipDB2" targetRuntime="MyBatis3Simple">
         <jdbcConnection driverClass="org.h2.Driver"
-                        connectionURL="jdbc:h2:~/h2database/DealershipDataBase3;AUTO_SERVER=TRUE"
+                        connectionURL="jdbc:h2:~/h2database/DealershipDB2;AUTO_SERVER=TRUE"
                         userId="admin"
                         password="admin">
         </jdbcConnection>
