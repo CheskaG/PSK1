@@ -44,6 +44,10 @@
                       <f:param name="carId" value="#{clientListMyBatis.car.id}" />
                 <f:param name="clientId" value="#{client1.id}" />
                </h:commandButton>
+                <h:commandButton value="Delete" action="#{clientListMyBatis.deleteClient}">
+                    <f:param name="carId" value="#{clientListMyBatis.car.id}" />
+                    <f:param name="clientId" value="#{client1.id}" />
+                </h:commandButton>
             </ui:repeat>
         </ol>
     </h:form>

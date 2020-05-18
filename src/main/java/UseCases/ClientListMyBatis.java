@@ -4,7 +4,6 @@ import Entities.Car;
 import Entities.Client;
 import Persistance.CarDAO;
 import Persistance.ClientDAO;
-import com.sun.mail.util.LineInputStream;
 import interceptors.LoggedInvocation;
 import lombok.Getter;
 import lombok.Setter;
@@ -106,6 +105,19 @@ public class ClientListMyBatis{
         carClientMapper.insert(carClient);
         return "Clients?faces-redirect=true&carId=" + this.car.getId();
     }
+
+    @Transactional
+    public String deleteClient() {
+
+        Map<String, String> requestParameters =
+                FacesContext.getCurrentInstance().getExternalContext().getRequestParameterMap();
+        Integer clientId = Integer.parseInt(requestParameters.get("clientId"));
+
+        clientMapper.deleteByPrimaryKey(clientId);
+        return "Clients?faces-redirect=true&carId=" + this.car.getId();
+    }
+
+
 
 
     @Override

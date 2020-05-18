@@ -35,6 +35,10 @@
         <h:link value="#{dealership.name}" outcome="Cars?dealershipId=#{dealership.id}"/>
 
     </h:column>
+    <h:column>
+        <f:facet name="header"><b>Edit</b></f:facet>
+        <h:link value="Edit" outcome="dealershipInfo?dealershipId=#{dealership.id}" />
+    </h:column>
 </h:dataTable>
 
 </body>

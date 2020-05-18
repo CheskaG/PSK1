@@ -26,4 +26,7 @@ public class DealershipDAO {
         return em.find(Dealership.class, id);
     }
 
+    public Dealership update(Dealership dealership) {
+        return em.merge(dealership);
+    }
 }

@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:h="http://xmlns.jcp.org/jsf/html"
+      xmlns:a="http://xmlns.jcp.org/jsf/passthrough"
+      xmlns:f="http://java.sun.com/jsf/core"
+>
+<h:head/>
+<h:body>
+    <h2>#{updateDealershipInfo.dealership.name}</h2>
+    <h:form>
+        <table>
+            <tr>
+                <td>Name:</td>
+                <td>
+                    <h:inputText id="name" value="#{updateDealershipInfo.dealership.name}" required="true"/>
+                </td>
+            </tr>
+        </table>
+        <p><h:commandButton value="Update" action="#{updateDealershipInfo.updateDealership}"/></p>
+
+    </h:form>
+    <h:outputText value='value has already been update by other user' rendered="#{param['error'] == 'optimistic-lock-exception'}" />
+</h:body>
+</html>
