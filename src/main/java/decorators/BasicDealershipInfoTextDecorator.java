@@ -22,6 +22,7 @@ public class BasicDealershipInfoTextDecorator implements DealershipInfoText{
 
     @Inject
     private DealershipIDService idService;
+
     @Override
     public String info() {
 

@@ -12,4 +12,7 @@
     <decorators>
         <class>decorators.BasicDealershipInfoTextDecorator</class>
     </decorators>
+    <alternatives>
+        <class>Services.RatingStaticPrint</class>
+    </alternatives>
 </beans>
